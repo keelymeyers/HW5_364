@@ -10,7 +10,8 @@ from flask_migrate import Migrate, MigrateCommand
 ############################
 # Application configurations
 ############################
-app = Flask(__name__)
+app = Flask(__name__, static_url_path = "", static_folder = "templates")
+
 app.debug = True
 app.use_reloader = True
 app.config['SECRET_KEY'] = 'hard to guess string from si364'
