@@ -161,10 +161,10 @@ def update(item):
     if form.validate_on_submit():
         print(item)
         new_priority = form.newPriority.data
-        n = TodoItem.query.filter_by(id=item.id).first()
+        n = TodoItem.query.filter_by(id=item).first()
         n.priority = new_priority
         db.session.commit()
-        flash("Updated priority of " + item)
+        flash("Updated priority of " + n.description)
         return redirect(url_for('all_lists'))
     return render_template('update_item.html',item = item, form = form)
 
